@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Selecionar moeda</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancelar()">Fechar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar #searchBar [(ngModel)]="searchTerm" (ionInput)="filtrarMoedas()" placeholder="Buscar moeda" autofocus="true"></ion-searchbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item
+      button
+      *ngFor="let moeda of moedasFiltradas"
+      (click)="selecionar(moeda.currencyCode)"
+    >
+      {{ moeda.currencyCode }} - {{ moeda.currencyName }}
+    </ion-item>
+  </ion-list>
+</ion-content>

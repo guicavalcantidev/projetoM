@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Histórico de conversão</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Histórico de conversão</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col><strong>Data</strong></ion-col>
+          <ion-col><strong>Origem</strong></ion-col>
+          <ion-col><strong>Destino</strong></ion-col>
+          <ion-col><strong>Valor</strong></ion-col>
+          <ion-col><strong>Resultado</strong></ion-col>
+        </ion-row>
+
+        <ion-row *ngFor="let item of historico">
+          <ion-col>{{ item.data | date:'dd/MM/yyyy HH:mm' }}</ion-col>
+          <ion-col>{{ item.moedaOrigem }}</ion-col>
+          <ion-col>{{ item.moedaDestino }}</ion-col>
+          <ion-col>{{ item.valor | number:'1.2-4' }}</ion-col>
+          <ion-col>{{ item.resultado | number:'1.2-4' }}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

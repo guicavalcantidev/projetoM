@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Conversão de moedas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Conversão de moedas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-input type="number" fill="outline" label="Valor" labelPlacement="floating" [(ngModel)]="valor"
+        name="valor"></ion-input>
+
+      <ion-item button (click)="abrirModalMoedas('moeda1')" [disabled]="loading">
+        <ion-label class="ion-text-wrap">
+          <strong>Moeda de origem:</strong> {{ moeda1 || 'não selecionada' }}
+        </ion-label>
+      </ion-item>
+
+      <ion-button expand="block" (click)="inverterMoedas()" [disabled]="loading">
+        <ion-icon slot="icon-only" name="sync-outline"></ion-icon>
+      </ion-button>
+
+      <ion-item button (click)="abrirModalMoedas('moeda2')" [disabled]="loading">
+        <ion-label class="ion-text-wrap">
+          <strong>Moeda de destino:</strong> {{ moeda2 || 'não selecionada' }}
+        </ion-label>
+      </ion-item>
+
+      <ion-button expand="block" (click)="converter()" [disabled]="loading">
+        Converter
+      </ion-button>
+
+      <ion-input type="text" fill="outline" label="Resultado da conversão" labelPlacement="floating"
+        [(ngModel)]="resultado" readonly="true" style="margin-top: 30px;"></ion-input>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

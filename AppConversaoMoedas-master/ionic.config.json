@@ -1,0 +1,7 @@
+{
+  "name": "AppConversaoMoedas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
